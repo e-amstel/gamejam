@@ -32,8 +32,11 @@ class Spel {
         this.cubes.push(new Obstacle());
 
         this.cubes.forEach(cube => {
+            this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
+            
             cube.move();
             cube.draw(this.context);
+            
         })
        // this.obstacle.draw(this.context);
     }    
@@ -53,6 +56,11 @@ class Spel {
         window.requestAnimationFrame(() => {
             this.refresh();
         })
+
+         //filter dead dots
+        this.cubes = this.cubes.filter(cube => {
+            return !cube.props.isDead;
+        })   ; 
     } 
 
 
