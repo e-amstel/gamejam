@@ -26,11 +26,11 @@ export default class Player {
             }
 
         });    
-        // window.addEventListener("keyup", (e) => {
-        //     this.props.move = 0;
-        //  //   this.move();
-        //  //   console.log(this.props.move);
-        // });    
+        window.addEventListener("keyup", (e) => {
+            this.props.move = 0;
+         //   this.move();
+         //   console.log(this.props.move);
+        });    
     } 
     randomColor() {
         return 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';

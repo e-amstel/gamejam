@@ -38,7 +38,8 @@ class Spel {
        // this.obstacle.draw(this.context);
     }    
     newLine(){
-        this.line = new Line(this.props.floor);        
+        this.line = new Line(this.props.floor);
+        
         this.line.draw(this.context);
     }   
 
@@ -47,10 +48,11 @@ class Spel {
         this.newObstacle();
     
         this.newLine();
-        
-        document.onkeydown = () => {
         this.newPlayer();
-        };
+        
+        window.requestAnimationFrame(() => {
+            this.refresh();
+        })
     } 
 
 
