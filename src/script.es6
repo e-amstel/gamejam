@@ -1,5 +1,7 @@
 //het main script
 import Player from "./player.es6";
+import Obstacle from "./obstacle.es6";
+
 
 class Spel {
     constructor(){
@@ -10,6 +12,8 @@ class Spel {
     this.player = new Player(200,200);
     this.newPlayer();
     
+    this.obstacle = new Obstacle();
+    this.newObstacle();
     }
   
   
@@ -20,3 +24,4 @@ class Spel {
 }    
 
 var spel = new Spel();
+

@@ -11,7 +11,8 @@ export default class Player {
                 x: 10,
                 y: 10
             },
-            color:this.randomColor()
+            color:this.randomColor(),
+            move: 1
         };
     } 
     randomColor() {
@@ -22,5 +23,18 @@ export default class Player {
         context.fillRect(this.props.x, this.props.y, this.props.width, this.props.height);
         context.fill();
     }
+    move(){
+        //als w dan y +speed, als s dan -speed
+        if (move == 0){
+            
+        }     
+        if (move == 1){
+
+        }   
+        else {
+
+        }
+    }
+    
 }  
 

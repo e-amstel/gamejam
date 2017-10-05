@@ -77,6 +77,10 @@ var _player = __webpack_require__(1);
 
 var _player2 = _interopRequireDefault(_player);
 
+var _obstacle = __webpack_require__(2);
+
+var _obstacle2 = _interopRequireDefault(_obstacle);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -90,6 +94,9 @@ var Spel = function () {
 
         this.player = new _player2.default(200, 200);
         this.newPlayer();
+
+        this.obstacle = new _obstacle2.default();
+        this.newObstacle();
     }
 
     _createClass(Spel, [{
@@ -135,7 +142,8 @@ var Player = function () {
                 x: 10,
                 y: 10
             },
-            color: this.randomColor()
+            color: this.randomColor(),
+            move: 1
         };
     }
 
@@ -151,12 +159,37 @@ var Player = function () {
             context.fillRect(this.props.x, this.props.y, this.props.width, this.props.height);
             context.fill();
         }
+    }, {
+        key: 'move',
+        value: function (_move) {
+            function move() {
+                return _move.apply(this, arguments);
+            }
+
+            move.toString = function () {
+                return _move.toString();
+            };
+
+            return move;
+        }(function () {
+            //als w dan y +speed, als s dan -speed
+            if (move == 0) {}
+            if (move == 1) {} else {}
+        })
     }]);
 
     return Player;
 }();
 
 exports.default = Player;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// de obstakels
+
 
 /***/ })
 /******/ ]);
