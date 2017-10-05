@@ -70,9 +70,36 @@
 "use strict";
 
 
-console.log([1, 2, 3].find(function (v) {
-  return v === 3;
-}));
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Line = function () {
+  function Line() {
+    _classCallCheck(this, Line);
+
+    this.props = {
+      width: window.innerWidth,
+      height: 5,
+      x: 0,
+      y: 300
+    };
+    this.canvas = document.querySelector("#myCanvas");
+    this.context = this.canvas.getContext("2d");
+  }
+
+  _createClass(Line, [{
+    key: "draw",
+    value: function draw(context) {
+      this.context.fillRect(this.props.x, this.props.y, this.props.width, this.props.height);
+    }
+  }]);
+
+  return Line;
+}();
+
+var line = new Line();
+line.draw();
 
 /***/ })
 /******/ ]);

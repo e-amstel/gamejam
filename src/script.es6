@@ -1,23 +1,23 @@
-//het main script
-import Player from "./player.es6";
-
-class Spel {
-    constructor(){
-
+class Line{
+  constructor(){
+    this.props = {
+      width: window.innerWidth,
+      height: 5,
+      x: 0,
+      y: 300
+    }
     this.canvas = document.querySelector("#myCanvas");
     this.context = this.canvas.getContext("2d");
+  }
+  draw(context) {
+    this.context.fillRect(
+            this.props.x,
+            this.props.y,
+            this.props.width,
+            this.props.height
+        )
+  }
+}
 
-    this.player = new Player(200,200);
-    this.newPlayer();
-    
-    }
-  
-  
-    newPlayer(){
-           // console.log("de bal");  
-            this.player.draw(this.context);
-        }    
-}    
-
-var spel = new Spel();
-
+const line = new Line();
+line.draw();
