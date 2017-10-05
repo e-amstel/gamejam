@@ -1,22 +1,27 @@
-export default class Obstacle {
-    constructor(x,y){
-        this.props = {
-            x: x,
-            y: y,
-            width: 20,
-            height: 20,            
-            vel: { //speed
-                x: 10,
-            },
-            color:this.randomColor(),
-        };
-    } 
-    randomColor() {
-        return 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+export default class Obstacle{
+    constructor(){
+      this.props = {
+        x: 800,
+        y: 20,
+        v: 5
+      }
+      this.canvas = document.querySelector("#myCanvas")
+      this.context = this.canvas.getContext("2d");
     }
-    draw(context){
-        context.fillStyle = this.props.color;
-        context.fillRect(this.props.x, this.props.y, this.props.width, this.props.height);
-        context.fill();
+    draw(context) {
+      this.context.fillRect(
+              this.props.x,
+              this.props.y,
+              20,
+              20
+      )
     }
-}
+    move(){
+      this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
+      this.props.x -= this.props.v;
+      this.draw();
+      window.requestAnimationFrame(() => {
+            this.move();
+        });
+    }
+  }
