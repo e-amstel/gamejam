@@ -17,7 +17,7 @@ export default class Obstacle{
       )
     }
     move(){
-      this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
+     // this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
       this.props.x -= this.props.v;
       this.draw();
       window.requestAnimationFrame(() => {

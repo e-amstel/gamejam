@@ -5,12 +5,19 @@ import Line from "./line.es6";
 
 class Spel {
     constructor(){
+        this.props = {
+            floor: 200,
+        }
+    this.cubes = [];
 
-    this.player = new Player(200,200);        
         
     this.canvas = document.querySelector("#myCanvas");
     this.context = this.canvas.getContext("2d");
-
+    
+    this.player = new Player(100,this.props.floor+10);                
+    
+    this.newPlayer();
+    
     this.refresh();
     
     }
@@ -19,19 +26,26 @@ class Spel {
     newPlayer(){
         this.player.move();
         this.player.draw(this.context);
+
     }    
     newObstacle(){
-        this.obstacle.draw(this.context);
+        this.cubes.push(new Obstacle());
+
+        this.cubes.forEach(cube => {
+            cube.move();
+            cube.draw(this.context);
+        })
+       // this.obstacle.draw(this.context);
     }    
     newLine(){
+        this.line = new Line(this.props.floor);        
         this.line.draw(this.context);
     }   
 
     refresh(){
-        this.obstacle = new Obstacle(100,100);
+        this.context.clearRect(0,0,900,500);
         this.newObstacle();
     
-        this.line = new Line();
         this.newLine();
         
         document.onkeydown = () => {
