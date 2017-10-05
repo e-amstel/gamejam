@@ -12,7 +12,7 @@ export default class Player {
                 y: 10
             },
             color:this.randomColor(),
-            move: 1
+            move: 0
         };
     } 
     randomColor() {
@@ -23,17 +23,24 @@ export default class Player {
         context.fillRect(this.props.x, this.props.y, this.props.width, this.props.height);
         context.fill();
     }
+    arrow(){
+        if (e.keyCode == 39){
+            this.props.move(-1);
+        }
+        if (e.keyCode == 87) { //w key
+            this.props.move(1);
+        }
+    }
+
     move(){
+        arrow();
         //als w dan y +speed, als s dan -speed
-        if (move == 0){
-            
+        if (move == -1){
+            this.props.y -= this.props.vel.y;
         }     
         if (move == 1){
-
+            this.props.y += this.props.vel.y;              
         }   
-        else {
-
-        }
     }
     
 }  

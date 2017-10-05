@@ -1,5 +1,7 @@
-import Line from "./line.cs6";
-
+//het main script
+import Player from "./player.es6";
+import Obstacle from "./obstacle.es6";
+import Line from "./line.es6";
 
 class Spel {
     constructor(){
@@ -12,6 +14,9 @@ class Spel {
     
     this.obstacle = new Obstacle();
     this.newObstacle();
+
+    this.line = new Line();
+    this.line.draw(this.context);
     }
   
   
