@@ -1,6 +1,4 @@
-//het main script
-import Player from "./player.es6";
-import Obstacle from "./obstacle.es6";
+import Line from "./line.cs6";
 
 
 class Spel {
