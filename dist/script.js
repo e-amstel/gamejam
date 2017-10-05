@@ -188,7 +188,6 @@ exports.default = Player;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-// de obstakels
 
 
 /***/ })
