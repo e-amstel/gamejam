@@ -16,14 +16,19 @@ class Spel {
     this.newObstacle();
 
     this.line = new Line();
-    this.line.draw(this.context);
+    this.newLine();
     }
   
   
     newPlayer(){
-           // console.log("de bal");  
-            this.player.draw(this.context);
+        this.player.draw(this.context);
         }    
+    newObstacle(){
+        this.obstacle.draw(this.context);
+    }    
+    newLine(){
+        this.line.draw(this.context);
+    }    
 }    
 
 var spel = new Spel();
