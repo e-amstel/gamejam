@@ -19,15 +19,15 @@ export default class Obstacle{
       console.log(this.props.x);
     }
     move(){
-     // this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
+      //this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
      if (this.props.x < 0){
         this.props.isDead = true;
      }
 
       this.props.x -= this.props.v;
      // this.draw();
-      window.requestAnimationFrame(() => {
-            this.move();
-        });
+    //   window.requestAnimationFrame(() => {
+    //         this.move();
+    //     });
     }
   }

@@ -30,10 +30,10 @@ class Spel {
     }    
     newObstacle(){
         this.cubes.push(new Obstacle());
-
+        this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
+        
         this.cubes.forEach(cube => {
-            this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
-            
+       //     this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
             cube.move();
             cube.draw(this.context);
             
@@ -42,12 +42,11 @@ class Spel {
     }    
     newLine(){
         this.line = new Line(this.props.floor);
-        
         this.line.draw(this.context);
     }   
 
     refresh(){
-        this.context.clearRect(0,0,900,500);
+      //  this.context.clearRect(0,0,900,500);
         this.newObstacle();
     
         this.newLine();

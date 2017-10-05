@@ -13,7 +13,8 @@ export default class Player {
             },
             gravity: 0.5,
             color:this.randomColor(),
-            move: 0
+            move: 0,
+            onGround: true
         };
         window.addEventListener("keydown", (e) => {
             if (e.keyCode == 83){ //s key
@@ -53,11 +54,11 @@ export default class Player {
         this.props.y += this.props.vel.y;
 
         
-        if(this.props.y > 175.0)
+        if(this.props.y > 200)
         {
-            this.props.y = 175.0;
+            this.props.y = 200;
             this.props.vel.y = 0.0;
-           // onGround = true;
+            this.props.onGround = true;
         }
         
         if (this.props.move == 0){
@@ -65,15 +66,18 @@ export default class Player {
             if(this.props.vel.y < -6.0)
                 this.props.vel.y = -6.0;                     
         }
-        //als w dan y +speed, als s dan -speed
-        // if (this.props.move == 1){
-        //     this.props.y += this.props.vel.y;
-        //     console.log("down");
-        // }     
-        if (this.props.move == 2){
+        if (this.props.move == 1){
+            this.props.y += 10;
+            // this.props.y += this.props.vel.y;
+             console.log("down");
+             console.log(this.props.vel.y);
+             
+         }     
+        if (this.props.move == 2 && this.props.onGround == true){
             this.props.vel.y = -20;   
             console.log("up");  
-            console.log(this.props.y);    
+            console.log(this.props.y);   
+            this.props.onGround =  false; 
         }   
 
              
