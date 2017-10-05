@@ -2,7 +2,7 @@ export default class Obstacle{
     constructor(){
       this.props = {
         x: 800,
-        y: 20,
+        y: 190,
         v: 5
       }
       this.canvas = document.querySelector("#myCanvas")

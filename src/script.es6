@@ -17,9 +17,12 @@ class Spel {
     this.player = new Player(100,this.props.floor+10);                
     
     this.newPlayer();
+
+    this.lastPush = 0;
+    this.interval = 1000;
+    
     
     this.refresh();
-    
     }
   
 
@@ -29,7 +32,12 @@ class Spel {
 
     }    
     newObstacle(){
-        this.cubes.push(new Obstacle());
+        if (Date.now() - this.lastPush > this.interval){
+            this.cubes.push(new Obstacle());
+            this.lastPush = Date.now();
+            this.interval = Math.random() * 2000;
+        }
+
         this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
         
         this.cubes.forEach(cube => {
